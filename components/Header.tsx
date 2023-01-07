@@ -35,15 +35,17 @@ export default function Header() {
       color="transparent"
       elevation={0}
       sx={{ borderBottom: ".5px solid white" }}
+      suppressHydrationWarning={true}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Link href="/">
             <Typography
+              suppressHydrationWarning={true}
               variant="h5"
               noWrap
-              component="a"
-              href="/"
+              // component="a"
+              // href="/"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -54,10 +56,9 @@ export default function Header() {
                 textDecoration: "none",
               }}
             >
-              SIGN
+              Blog
             </Typography>
           </Link>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -90,17 +91,23 @@ export default function Header() {
               {categories.map((category) => (
                 <Link key={category.slug} href={`/category/${category.slug}`}>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{category.name}</Typography>
+                    <Typography
+                      suppressHydrationWarning={true}
+                      textAlign="center"
+                    >
+                      {category.name}
+                    </Typography>
                   </MenuItem>
                 </Link>
               ))}
             </Menu>
           </Box>
           <Typography
+            suppressHydrationWarning={true}
             variant="h5"
             noWrap
-            component="a"
-            href=""
+            // component="a"
+            // href=""
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -112,7 +119,7 @@ export default function Header() {
               textDecoration: "none",
             }}
           >
-            SIGN
+            Blog
           </Typography>
           <Box
             sx={{
