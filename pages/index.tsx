@@ -1,48 +1,11 @@
 import Head from "next/head";
 import { PostCard, PostRecent, Categories } from "../components";
-import { GraphQLClient, gql } from "graphql-request";
-
-const graphcms = new GraphQLClient(
-  "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clckwrzth1vpw01ufehmbb64t/master"
-);
-
-const QUERY = gql`
-  query MyQuery {
-    postsConnection {
-      edges {
-        node {
-          createdAt
-          author {
-            id
-            avatar {
-              url
-            }
-            bio
-            name
-          }
-          slug
-          title
-          excerpt
-          featuredImage {
-            url
-          }
-          categories {
-            name
-            slug
-          }
-        }
-      }
-    }
-  }
-`;
+import { getPosts } from "../services";
 
 export async function getStaticProps() {
-  const response = await graphcms.request(QUERY);
-  const posts = response.postsConnection.edges;
+  const posts = (await getPosts()) || [];
   return {
-    props: {
-      posts,
-    },
+    props: { posts },
     revalidate: 10,
   };
 }
