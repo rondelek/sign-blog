@@ -15,6 +15,15 @@ const theme = createTheme({
         },
       },
     },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          "&:hover": {
+            cursor: "pointer",
+          },
+        },
+      },
+    },
   },
 });
 

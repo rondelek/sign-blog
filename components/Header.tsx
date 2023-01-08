@@ -1,5 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
+import { useState, useEffect, MouseEvent } from "react";
+import { getCategories } from "../services";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,17 +13,16 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 
-const categories = [
-  { name: "Langauge", slug: "language" },
-  { name: "Books", slug: "books" },
-];
-
 export default function Header() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [categories, setCategories] = useState<any[]>([]);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  useEffect(() => {
+    getCategories().then((result) => setCategories(result));
+  }, []);
+
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+  const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
