@@ -5,11 +5,6 @@ import { Layout } from "../components";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
-  palette: {
-    secondary: {
-      main: "#fff",
-    },
-  },
   components: {
     MuiContainer: {
       styleOverrides: {

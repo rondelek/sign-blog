@@ -56,7 +56,7 @@ export default function Home({ posts }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid md:grid-cols-12 grid-cols-1">
+      <div className="grid md:grid-cols-12 grid-cols-1 gap-10">
         <div className="md:col-span-8 col-span-1">
           {posts.map((post: any, index: number) => {
             return <PostCard post={post.node} key={index} />;

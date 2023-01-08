@@ -44,8 +44,6 @@ export default function Header() {
               suppressHydrationWarning={true}
               variant="h5"
               noWrap
-              // component="a"
-              // href="/"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -56,17 +54,23 @@ export default function Header() {
                 textDecoration: "none",
               }}
             >
-              Blog
+              SIGN
             </Typography>
           </Link>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              color: "#fff",
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="secondary"
+              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -106,8 +110,6 @@ export default function Header() {
             suppressHydrationWarning={true}
             variant="h5"
             noWrap
-            // component="a"
-            // href=""
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -119,7 +121,7 @@ export default function Header() {
               textDecoration: "none",
             }}
           >
-            Blog
+            SIGN
           </Typography>
           <Box
             sx={{
