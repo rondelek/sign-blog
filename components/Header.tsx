@@ -54,7 +54,7 @@ export default function Header() {
                 textDecoration: "none",
               }}
             >
-              SIGN
+              Blog
             </Typography>
           </Link>
           <Box
@@ -121,7 +121,7 @@ export default function Header() {
               textDecoration: "none",
             }}
           >
-            SIGN
+            Blog
           </Typography>
           <Box
             sx={{

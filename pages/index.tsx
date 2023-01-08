@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PostCard, PostRecent, Categories } from "../components";
+import { PostCard, PostWidget, Categories } from "../components";
 import { getPosts } from "../services";
 
 export async function getStaticProps() {
@@ -26,7 +26,7 @@ export default function Home({ posts }: any) {
           })}
         </div>
         <div className="md:col-span-4 col-span-1">
-          <PostRecent />
+          <PostWidget />
           <Categories />
         </div>
       </div>
