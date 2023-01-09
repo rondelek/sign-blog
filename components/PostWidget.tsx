@@ -29,8 +29,11 @@ export default function PostWidget({ categories, slug }: PostWidget) {
       </h3>
       {relatedPosts?.map((post) => {
         return (
-          <div className="flex items-center border-b py-4 gap-4">
-            <Link href={`/post/${post["slug"]}`} key={post["title"]}>
+          <div
+            key={post["title"]}
+            className="flex items-center border-b py-4 gap-4"
+          >
+            <Link href={`/post/${post["slug"]}`}>
               <Avatar
                 src={post["featuredImage"]["url"]}
                 sx={{ width: 56, height: 56 }}
