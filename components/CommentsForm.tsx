@@ -11,22 +11,22 @@ type CommentsForm = {
 export default function CommentsForm({ slug }: CommentsForm) {
   const [error, setError] = useState(false);
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [localStorage, setLocalStorage] = useState(null);
+  const [localStorage, setLocalStorage] = useState<any>(null);
 
   const commentEl: any = useRef();
   const nameEl: any = useRef();
   const emailEl: any = useRef();
   const storeDataEl: any = useRef();
   const [formData, setFormData] = useState({
-    name: null,
-    email: null,
-    comment: null,
-    storeData: false,
+    name: undefined,
+    email: undefined,
+    comment: undefined,
+    storeData: "no",
   });
 
   useEffect(() => {
     setLocalStorage(window.localStorage);
-    const initialFormData = {
+    const initialFormData: any = {
       name: window.localStorage.getItem("name"),
       email: window.localStorage.getItem("email"),
       storeData:
@@ -36,7 +36,7 @@ export default function CommentsForm({ slug }: CommentsForm) {
     setFormData(initialFormData);
   }, []);
 
-  const onInputChange = (e) => {
+  const onInputChange = (e: any) => {
     const { target } = e;
     if (target.type === "checkbox") {
       setFormData((prevState) => ({
@@ -65,7 +65,7 @@ export default function CommentsForm({ slug }: CommentsForm) {
       slug,
     };
 
-    if (storeData) {
+    if (storeData === "yes") {
       localStorage!.setItem("name", name);
       localStorage!.setItem("email", email);
     } else {
