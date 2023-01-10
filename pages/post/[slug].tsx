@@ -4,6 +4,7 @@ import {
   Categories,
   Author,
   CommentsForm,
+  Comments,
 } from "../../components";
 import { getPostDetails, getPosts } from "../../services";
 
@@ -21,7 +22,7 @@ export default function PostDetails({ post }: any) {
         <Author author={post.author} />
         {/* <AdjacentPosts /> */}
         <CommentsForm slug={post.slug} />
-        {/* <Comments slug={post.slug} /> */}
+        <Comments slug={post.slug} />
       </div>
       <div className="lg:col-span-4 col-span-1">
         <div className="lg:sticky relative top-8">
