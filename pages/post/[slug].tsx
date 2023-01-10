@@ -1,4 +1,10 @@
-import { PostWidget, PostDetail, Categories } from "../../components";
+import {
+  PostWidget,
+  PostDetail,
+  Categories,
+  Author,
+  CommentsForm,
+} from "../../components";
 import { getPostDetails, getPosts } from "../../services";
 
 type Category = {
@@ -12,19 +18,21 @@ export default function PostDetails({ post }: any) {
     <div className="grid lg:grid-cols-12 grid-cols-1 lg:gap-10">
       <div className="lg:col-span-8 col-span-1">
         <PostDetail post={post} />
-        {/* <Author author={post.author} /> */}
+        <Author author={post.author} />
         {/* <AdjacentPosts /> */}
-        {/* <CommentsForm slug={post.slug} />
-        <Comments slug={post.slug} /> */}
+        <CommentsForm slug={post.slug} />
+        {/* <Comments slug={post.slug} /> */}
       </div>
       <div className="lg:col-span-4 col-span-1">
-        <PostWidget
-          slug={post.slug}
-          categories={post.categories.map(
-            (category: Category) => category.slug
-          )}
-        />
-        <Categories />
+        <div className="lg:sticky relative top-8">
+          <PostWidget
+            slug={post.slug}
+            categories={post.categories.map(
+              (category: Category) => category.slug
+            )}
+          />
+          <Categories />
+        </div>
       </div>
     </div>
   );

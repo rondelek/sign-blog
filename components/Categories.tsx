@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getCategories } from "../services";
+import Box from "./Box";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
@@ -10,8 +11,7 @@ export default function Categories() {
   }, []);
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 lg:p-8 pb-12 my-8 ">
-      <h3 className="text-2xl border-b pb-4">Categories</h3>
+    <Box title={"Categories"}>
       {categories.map((category) => {
         return (
           <Link href={`/category/${category["slug"]}`} key={category["name"]}>
@@ -21,6 +21,6 @@ export default function Categories() {
           </Link>
         );
       })}
-    </div>
+    </Box>
   );
 }

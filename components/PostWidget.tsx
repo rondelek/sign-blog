@@ -3,6 +3,7 @@ import Link from "next/link";
 import moment from "moment";
 import { getRecentPosts, getSimilarPosts } from "../services";
 import { Avatar } from "@mui/material";
+import Box from "./Box";
 
 type PostWidget = {
   categories?: String[];
@@ -23,10 +24,7 @@ export default function PostWidget({ categories, slug }: PostWidget) {
   }, [slug]);
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-4 lg:p-8 pb-12 my-8 ">
-      <h3 className="text-2xl border-b pb-4">
-        {slug ? "Related posts" : "Recent posts"}
-      </h3>
+    <Box title={slug ? "Related posts" : "Recent posts"}>
       {relatedPosts?.map((post) => {
         return (
           <div
@@ -52,6 +50,6 @@ export default function PostWidget({ categories, slug }: PostWidget) {
           </div>
         );
       })}
-    </div>
+    </Box>
   );
 }

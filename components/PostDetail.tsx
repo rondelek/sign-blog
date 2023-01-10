@@ -4,7 +4,7 @@ import moment from "moment";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 export default function PostDetail({ post }: any) {
-  const getContentFragment = (index, text, obj, type) => {
+  const getContentFragment = (index: any, text: any, obj: any, type?: any) => {
     let modifiedText = text;
 
     if (obj) {
@@ -25,7 +25,7 @@ export default function PostDetail({ post }: any) {
       case "heading-two":
         return (
           <h2 key={index} className="text-2xl font-semibold mb-4">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: any) => (
               <Fragment key={i}>{item}</Fragment>
             ))}
           </h2>
@@ -33,7 +33,7 @@ export default function PostDetail({ post }: any) {
       case "heading-three":
         return (
           <h3 key={index} className="text-xl font-semibold mb-4">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: any) => (
               <Fragment key={i}>{item}</Fragment>
             ))}
           </h3>
@@ -41,7 +41,7 @@ export default function PostDetail({ post }: any) {
       case "paragraph":
         return (
           <p key={index} className="mb-8">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: any) => (
               <Fragment key={i}>{item}</Fragment>
             ))}
           </p>
@@ -49,7 +49,7 @@ export default function PostDetail({ post }: any) {
       case "heading-four":
         return (
           <h4 key={index} className="text-md font-semibold mb-4">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: any) => (
               <Fragment key={i}>{item}</Fragment>
             ))}
           </h4>
@@ -100,9 +100,10 @@ export default function PostDetail({ post }: any) {
           </div>
         </div>
         <div className="flex flex-col text-left">
-          {post.content.raw.children.map((typeObj, index) => {
-            const children = typeObj.children.map((item, itemIndex) =>
-              getContentFragment(itemIndex, item.text, item)
+          {post.content.raw.children.map((typeObj: any, index: Number) => {
+            const children = typeObj.children.map(
+              (item: any, itemIndex: Number) =>
+                getContentFragment(itemIndex, item.text, item)
             );
 
             return getContentFragment(index, children, typeObj, typeObj.type);
